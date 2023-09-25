@@ -1,0 +1,18 @@
+<form class="form-signin w-100 m-auto" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="d-flex justify-content-center">
+        <img src="assets/logo/yilkomakine.jpg" alt="" width="150" height="150">
+    </div>
+    <h1 class="h3 mb-3 fw-normal text-center">Yılko Makine Admin Panel Girişi</h1>
+
+    <div class="form-floating">
+        <input type="text" #userName="ngModel" [(ngModel)]="user.userName" name="userName" class="form-control"
+            id="userName" placeholder="Kullanıcı Adı" required>
+        <label for="userName">Kullanıcı Adı</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" #password="ngModel" [(ngModel)]="user.password" name="password" class="form-control"
+            id="password" placeholder="Şifre" required>
+        <label for="password">Şifre</label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Giriş Yap</button>
+</form>

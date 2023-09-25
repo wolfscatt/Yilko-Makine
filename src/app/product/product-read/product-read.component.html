@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+    <img src="assets/logo/yilkomakine.jpg" alt="" width="150" height="150">
+</div>
+<h1 class="h3 mb-3 fw-normal text-center">Yılko Makine Ürünleri Sayfası</h1>
+<p class="lead text-center">Güncellemek ya da silmek istediğiniz ürünleri yanlarında bulunan butonları kullanarak gerekli operasyonları gerçekleştirebilirsiniz.</p>
+
+<table class="table table-bordered table-hover mx-4">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Görsel</th>
+            <th>İsim</th>
+            <th>Operasyon</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td><img [src]="product.imageUrl" width="100px" alt=""></td>
+            <td>{{product.name}}</td>
+            <td>
+                <div class="btn-group d-flex">
+                    <button (click)="deleteProduct(product)" class="btn btn-danger">
+                        Sil
+                    </button>
+                    <a type="button" routerLink="/ymadmin" class="btn btn-outline-primary">
+                        Geri Git
+                    </a>
+                    <a type="button" routerLink="/ymadmin/productUpdate/{{product.id}}" class="btn btn-warning">
+                        Güncelle
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

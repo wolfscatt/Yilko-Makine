@@ -1,0 +1,46 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner">
+        <div *ngFor="let product of randomProducts; let i = index" class="carousel-item" [class.active]="i === 0"
+            data-bs-interval="3000">
+            <div class="container">
+                <img [src]="product.imageUrl" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="mb-2">{{product.name}}</h5>
+            </div>
+        </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container-fluid my-3">
+    <h2 class="text-center">Başlıca Ürünlerimiz</h2>
+    <hr>
+
+    <div class="row">
+        <div *ngFor="let product of randomProducts " class="card border mx-auto my-3" style="width: 300px;">
+            <div class="card-header text-center bg-danger">
+                <h6 class="card-title mt-1">{{product.name}}</h6>
+            </div>
+            <div class="card-body">
+                <img [src]="product.imageUrl" class="img-fluid rounded" alt="">
+            </div>
+        </div>
+    </div>
+</div>

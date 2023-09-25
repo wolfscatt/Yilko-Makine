@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center">
+    <img src="assets/logo/yilkomakine.jpg" alt="" width="150" height="150">
+</div>
+<h1 class="h3 mb-3 fw-normal text-center">Yılko Makine Ürün Ekleme Sayfası</h1>
+
+<form #productAddForm="ngForm" (ngSubmit)="add(productAddForm)">
+    <div class="form-group w-100 m-auto">
+        <input type="text" placeholder="Ürün adı" #name="ngModel" [(ngModel)]="model.name" class="form-control"
+            name="name" id="name" required>
+        <div *ngIf="name.invalid&&name.dirty" class="alert alert-danger">Ürün İsmi Gereklidir.</div>
+    </div>
+    <div class="form-group w-100 m-auto">
+        <input type="text" placeholder="Ürün Resmi linki ekleyiniz" #imageUrl="ngModel"
+            [(ngModel)]="model.imageUrl" class="form-control" name="imageUrl" id="imageUrl">
+    </div>
+    <div class="form-group w-100 m-auto">
+        <img [src]="model.imageUrl" alt="Seçilen Resim">
+    </div>
+    <div class="d-flex justify-content-center w-100 m-auto px-3" style="max-width: 330px;">
+        <button type="submit" class="btn btn-success me-auto" [disabled]="productAddForm.invalid">
+            Ürün Ekle
+        </button>
+        <a type="button" routerLink="/ymadmin" class="btn btn-primary">
+            Geri Git
+        </a>
+    </div>
+</form>

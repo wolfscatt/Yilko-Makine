@@ -1,0 +1,28 @@
+
+<nav class="navbar navbar-expand-lg bg-danger ">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="homePage">
+            <img src="assets/logo/yilkomakine_clipdrop-background-removal.png" alt="logo" width="80px" height="80px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="homePage"><h5>Anasayfa</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="about"><h5>Hakkımızda</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="products"><h5>Ürünler</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="isLoggedIn()" (click)="logOut()" class="nav-link text-warning bg-dark rounded" href="#">Çıkış Yap</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> 

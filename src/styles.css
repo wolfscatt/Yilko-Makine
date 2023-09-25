@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~alertifyjs/build/css/alertify.min.css";
+@import "~alertifyjs/build/css/themes/bootstrap.min.css";
+
+.footer {
+    position: relative;
+    margin-top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center; /* İçeriği ortala */
+    line-height: 0px; /* Metin yüksekliğini ayarlayın (dikey ortalama) */
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh; /* Ekran yüksekliği kadar büyüsün */
+
+  }
+
+  #footer{
+    background-color: darkgray;
+  }
