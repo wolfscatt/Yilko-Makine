@@ -13,13 +13,16 @@ export class LoginComponent {
 
   user: User = new User()
   constructor(private accountService: AccountService, private alertifyService: AlertifyService){}
+  
   login(form: NgForm){
-    let logged = this.accountService.login(this.user)
-    if(logged){
+    this.accountService.login(this.user)
+    /*
+    if(this.accountService.isLoggedIn){
       this.alertifyService.success(`${this.user.userName} başarılı bir şekilde giriş yaptı.`)
     }else{
       this.alertifyService.error("Yanlış Kullanıcı Adı veya Şifre")
     }
+    */
 
   }
 }

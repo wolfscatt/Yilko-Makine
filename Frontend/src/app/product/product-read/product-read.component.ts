@@ -18,9 +18,16 @@ export class ProductReadComponent implements OnInit {
   products: Product[]
 
   deleteProduct(product: Product) {
-    this.productService.deleteProduct(product.id).subscribe(data => {
-      this.alertifyService.error(`${product.name} Başarılı bir şekilde silindi.`)
-      this.loadProduct()
+    this.productService.deleteProduct(product._id).subscribe({
+      next: result =>{
+      },
+      error: err =>{
+        this.alertifyService.error("Ürün Silinirken bir hata oluştu.")
+      },
+      complete: () =>{
+        this.alertifyService.success(`${product.name} başarılı bir şekilde silindi.`)
+        this.loadProduct()
+      }
     })
   }
 

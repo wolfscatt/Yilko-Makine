@@ -14,7 +14,7 @@
             [(ngModel)]="model.imageUrl" class="form-control" name="imageUrl" id="imageUrl">
     </div>
     <div class="form-group w-100 m-auto">
-        <img [src]="model.imageUrl" alt="Seçilen Resim">
+        <img [src]="model.imageUrl" width="250px" alt="Seçilen Resim">
     </div>
     <div class="d-flex justify-content-center w-100 m-auto px-3" style="max-width: 330px;">
         <button type="submit" class="btn btn-success me-auto" [disabled]="productAddForm.invalid">

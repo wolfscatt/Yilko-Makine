@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
-            <td>{{product.id}}</td>
+            <td>{{product._id}}</td>
             <td><img [src]="product.imageUrl" width="100px" alt=""></td>
             <td>{{product.name}}</td>
             <td>
@@ -26,7 +26,7 @@
                     <a type="button" routerLink="/ymadmin" class="btn btn-outline-primary">
                         Geri Git
                     </a>
-                    <a type="button" routerLink="/ymadmin/productUpdate/{{product.id}}" class="btn btn-warning">
+                    <a type="button" routerLink="/ymadmin/productUpdate/{{product.name}}" class="btn btn-warning">
                         Güncelle
                     </a>
                 </div>

@@ -16,8 +16,13 @@ export class ProductAddComponent {
     private alertifyService: AlertifyService) { }
 
   add(form: NgForm) {
-    this.productService.addProduct(this.model).subscribe(data => {
-        this.alertifyService.success(`${data.name} Başarılı bir şekilde eklendi.`)
+    this.productService.addProduct(this.model).subscribe({
+      next: result =>{
+        this.alertifyService.success(`${this.model.name} başarılı bir şekilde eklendi.`)
+      },
+      error: error => {
+        this.alertifyService.error("ürün eklenirken bir hata oluştu.")
+      },
     })
   }
 

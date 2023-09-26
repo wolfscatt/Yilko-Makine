@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:"about", component: AboutComponent},
   {path:"homePage", component: HomePageComponent},
   {path:"ymadmin/productAdd", component: ProductAddComponent, canActivate:[canActivateFun]},
-  {path:"ymadmin/productUpdate/:id", component: ProductUpdateComponent, canActivate:[canActivateFun]},
+  {path:"ymadmin/productUpdate/:name", component: ProductUpdateComponent, canActivate:[canActivateFun]},
   {path:"ymadmin/products",component: ProductReadComponent, canActivate:[canActivateFun]},
   {path:"ymadmin/login",component: LoginComponent},
   {path:"ymadmin", component: AdminPanelComponent, canActivate:[canActivateFun]}

@@ -3,32 +3,34 @@ import { AlertifyService } from 'src/app/services/alertify.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from '../product';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-update',
   templateUrl: './product-update.component.html',
   styleUrls: ['./product-update.component.css']
 })
-export class ProductUpdateComponent implements OnInit{
+export class ProductUpdateComponent implements OnInit {
 
   model: Product = new Product();
-  constructor(private productService:ProductService, 
+  constructor(private productService: ProductService,
     private alertifyService: AlertifyService,
-    private route: ActivatedRoute){}
+    private route: ActivatedRoute,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.getProduct()
   }
-  getProductId():number{
+  getProductName(): string {
     const currentUrl = this.route.snapshot.url.join("/")
     let urlArray = currentUrl.split("/")
-    let id = urlArray[urlArray.length-1]
-    return Number(id)
+    let name = urlArray[urlArray.length - 1]
+    console.log(name);
+    return name
   }
-  getProduct(){
-    this.productService.getProduct(this.getProductId()).subscribe(data => {
-      this.model.id = data.id
+  getProduct() {
+    this.productService.getProduct(this.getProductName()).subscribe(data => {
+      this.model._id = data._id
       this.model.name = data.name
       this.model.imageUrl = data.imageUrl
     })
@@ -37,8 +39,16 @@ export class ProductUpdateComponent implements OnInit{
     const formData = form.value
     this.model.name = formData.name
     this.model.imageUrl = formData.imageUrl
-    this.productService.updateProduct(this.model).subscribe(data => {
-        this.alertifyService.success(`${data.name} Başarılı bir şekilde güncellendi.`)
+    this.productService.updateProduct(this.getProductName(),this.model).subscribe({
+      next: result => {
+        this.alertifyService.success(`${result.name} başarılı bir şekilde güncellendi.`)
+      },
+      error: error => {
+        this.alertifyService.error("Ürün Güncellenirken bir hata oluştu.")
+      },
+      complete: () => {
+        this.router.navigate(["ymadmin"])
+      }
     })
   }
 
