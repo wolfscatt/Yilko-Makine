@@ -11,7 +11,7 @@ import { AccountService } from './account.service';
 })
 export class ProductService {
 
-  path = environment.path + "/products"
+  path = environment.path + "products"
   constructor(private http: HttpClient, private injector: Injector) { }
   accountService = this.injector.get(AccountService)
 
