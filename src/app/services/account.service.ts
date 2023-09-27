@@ -12,7 +12,7 @@ export class AccountService {
 
   constructor(private router: Router, private http: HttpClient, private alertifyService: AlertifyService) { }
   loggedIn = false
-  path = environment.path + "/admin/login"
+  path = environment.path + "admin/login"
   TOKEN_KEY = "token"
 
   login(user: User) {
